@@ -1,0 +1,274 @@
+object FormPrincipal: TFormPrincipal
+  Left = 323
+  Height = 426
+  Top = 127
+  Width = 640
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
+  Caption = 'CSV2QRCODE'
+  ClientHeight = 426
+  ClientWidth = 640
+  OnClose = FormClose
+  OnCreate = FormCreate
+  LCLVersion = '2.0.12.0'
+  object PageControlQRcode: TPageControl
+    Left = 24
+    Height = 368
+    Top = 16
+    Width = 592
+    ActivePage = TabSheet1
+    TabIndex = 0
+    TabOrder = 0
+    object TabSheet1: TTabSheet
+      Caption = 'Principal'
+      ClientHeight = 340
+      ClientWidth = 584
+      object ButtonCarregarArquivoCsv: TButton
+        Left = 16
+        Height = 25
+        Top = 16
+        Width = 183
+        Caption = 'Carregar arquivo CSV'
+        OnClick = ButtonCarregarArquivoCsvClick
+        TabOrder = 0
+      end
+      object EditCsv: TEdit
+        Left = 216
+        Height = 23
+        Top = 16
+        Width = 352
+        TabOrder = 1
+      end
+      object ListBoxCsv: TListBox
+        Left = 16
+        Height = 200
+        Top = 56
+        Width = 328
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Courier New'
+        Font.Pitch = fpFixed
+        Font.Quality = fqDraft
+        ItemHeight = 0
+        OnClick = ListBoxCsvClick
+        ParentFont = False
+        TabOrder = 2
+      end
+      object ImageQRcode: TImage
+        Left = 368
+        Height = 200
+        Top = 56
+        Width = 200
+        Center = True
+        Proportional = True
+        Stretch = True
+      end
+      object ButtonVoltaCampo: TButton
+        Left = 16
+        Height = 25
+        Top = 272
+        Width = 40
+        Caption = '<'
+        OnClick = ButtonVoltaCampoClick
+        TabOrder = 3
+      end
+      object EditCampo: TEdit
+        Left = 68
+        Height = 23
+        Top = 272
+        Width = 224
+        TabOrder = 4
+      end
+      object ButtonAvancaCampo: TButton
+        Left = 304
+        Height = 25
+        Top = 272
+        Width = 40
+        Caption = '>'
+        OnClick = ButtonAvancaCampoClick
+        TabOrder = 5
+      end
+      object ButtonQrcodeRegistro: TButton
+        Left = 368
+        Height = 25
+        Top = 272
+        Width = 200
+        Caption = 'QR code para este registro'
+        OnClick = ButtonQrcodeRegistroClick
+        TabOrder = 6
+      end
+      object ButtonQrcodeTodosRegistros: TButton
+        Left = 368
+        Height = 25
+        Top = 304
+        Width = 200
+        Caption = 'QR code para todos registros'
+        OnClick = ButtonQrcodeTodosRegistrosClick
+        TabOrder = 7
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'Ajustes'
+      ClientHeight = 340
+      ClientWidth = 584
+      object ComboBoxDelimitadorCampo: TComboBox
+        Left = 195
+        Height = 23
+        Top = 61
+        Width = 44
+        ItemHeight = 15
+        ItemIndex = 0
+        Items.Strings = (
+          ';'
+          ','
+        )
+        MaxLength = 1
+        OnChange = ComboBoxDelimitadorCampoChange
+        TabOrder = 1
+        Text = ';'
+      end
+      object Label1: TLabel
+        Left = 61
+        Height = 15
+        Top = 64
+        Width = 121
+        Caption = 'Delimitador de campo:'
+        ParentColor = False
+      end
+      object ComboBoxDelimitadorTexto: TComboBox
+        Left = 195
+        Height = 23
+        Top = 104
+        Width = 44
+        ItemHeight = 15
+        Items.Strings = (
+          '"'
+          ''''
+        )
+        MaxLength = 1
+        OnChange = ComboBoxDelimitadorTextoChange
+        TabOrder = 2
+      end
+      object Label2: TLabel
+        Left = 71
+        Height = 15
+        Top = 107
+        Width = 111
+        Caption = 'Delimitador de texto:'
+        ParentColor = False
+      end
+      object Label3: TLabel
+        Left = 32
+        Height = 15
+        Top = 147
+        Width = 150
+        Caption = 'Prefixo do nome de arquivo:'
+        ParentColor = False
+      end
+      object EditPrefixoNomeArquivo: TEdit
+        Left = 195
+        Height = 23
+        Top = 144
+        Width = 333
+        TabOrder = 3
+        Text = 'qrcode_'
+      end
+      object CheckBoxIgnorarPrimeiraLinha: TCheckBox
+        Left = 195
+        Height = 19
+        Top = 24
+        Width = 134
+        Caption = 'Ignorar primeira linha'
+        Checked = True
+        OnChange = CheckBoxIgnorarPrimeiraLinhaChange
+        State = cbChecked
+        TabOrder = 0
+      end
+      object Label4: TLabel
+        Left = 47
+        Height = 15
+        Top = 187
+        Width = 135
+        Caption = 'Nível de correção de erro:'
+        ParentColor = False
+      end
+      object ComboBoxNivelCorrecaoErro: TComboBox
+        Left = 195
+        Height = 23
+        Top = 184
+        Width = 237
+        ItemHeight = 15
+        ItemIndex = 0
+        Items.Strings = (
+          'L - 7% de redundância de dados'
+          'M - 15% de redundância de dados'
+          'Q - 25% de redundância de dados'
+          'H - 30% de redundância de dados'
+        )
+        MaxLength = 1
+        OnChange = ComboBoxNivelCorrecaoErroChange
+        Style = csDropDownList
+        TabOrder = 4
+        Text = 'L - 7% de redundância de dados'
+      end
+      object Label5: TLabel
+        Left = 63
+        Height = 15
+        Top = 225
+        Width = 119
+        Caption = 'Dimensão da imagem:'
+        ParentColor = False
+      end
+      object SpinEditImagemDimensao: TSpinEdit
+        Left = 195
+        Height = 23
+        Top = 222
+        Width = 50
+        MaxValue = 9999
+        MinValue = 50
+        TabOrder = 5
+        Value = 500
+      end
+      object Label6: TLabel
+        Left = 258
+        Height = 15
+        Top = 224
+        Width = 30
+        Caption = 'pixels'
+        ParentColor = False
+      end
+      object Label7: TLabel
+        Left = 440
+        Height = 15
+        Top = 304
+        Width = 116
+        Caption = 'Por Ericson Benjamim'
+        ParentColor = False
+      end
+    end
+  end
+  object StatusBarQRcode: TStatusBar
+    Left = 0
+    Height = 23
+    Top = 403
+    Width = 640
+    Panels = <>
+    SimpleText = 'NAU - SETIC - TRT13 - JULHO/2021'
+  end
+  object OpenDialogCsv: TOpenDialog
+    Filter = 'Arquivos CSV (*.csv)|*.csv|Todos arquivos (*.*)|*.*'
+    Left = 528
+    Top = 240
+  end
+  object SaveDialogBmp: TSaveDialog
+    DefaultExt = '.bmp'
+    Options = [ofOverwritePrompt, ofEnableSizing, ofViewDetail]
+    Left = 432
+    Top = 240
+  end
+  object SelectDirectoryDialogQRcode: TSelectDirectoryDialog
+    Left = 480
+    Top = 168
+  end
+end
